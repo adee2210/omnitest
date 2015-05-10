@@ -1,0 +1,33 @@
+{
+    "name": "adee2210/omnitest",
+    "description": "Adee omnipay test!",
+    "require": {        
+	"omnipay/omnipay": "~2.3",
+        "adee2210/omnitest": "dev-master"
+    },
+    "license": "AdeeIsMe",
+    "authors": [
+        {
+            "name": "Adee BNH",
+            "email": "adee_2210@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "adee2210/omnitest",
+            "version": "dev-master",
+            "source": {
+                "url": "https://github.com/adee2210/omnitest",
+                "type": "git",
+                "reference": "master"
+            },
+            "autoload": {
+                "psr-4": { "adee2210/omnitest" : "src/" }
+            }
+        }
+    }
+    ]
+}
