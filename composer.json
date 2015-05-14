@@ -1,33 +1,18 @@
 {
     "name": "adee2210/omnitest",
-    "description": "Adee omnipay test!",
-    "require": {        
-	"omnipay/omnipay": "~2.3",
-        "adee2210/omnitest": "dev-master"
-    },
-    "license": "AdeeIsMe",
+    "description": "Omnipay test gateway!",
+    "license": "proprietary",
     "authors": [
         {
-            "name": "Adee BNH",
-            "email": "adee_2210@hotmail.com"
+            "name": "Adel Waehayi",
+            "email": "adee_2210@hortmail.com"
         }
     ],
     "minimum-stability": "dev",
-    "repositories": [
-    {
-        "type": "package",
-        "package": {
-            "name": "adee2210/omnitest",
-            "version": "dev-master",
-            "source": {
-                "url": "https://github.com/adee2210/omnitest",
-                "type": "git",
-                "reference": "master"
-            },
-            "autoload": {
-                "psr-4": { "adee2210/omnitest" : "src/" }
-            }
-        }
+    "require": {
+        "omnipay/common": "^2.0@dev",
+        "phpunit/phpunit": "^4.8@dev",
+        "omnipay/paypal": "^2.3@dev",
+        "omnipay/netbanx": "^2.0@dev"
     }
-    ]
 }
