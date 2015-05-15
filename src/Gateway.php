@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Omnitest;
+namespace Adee2210\Omnitest;
 
 use Omnipay\Common\AbstractGateway;
 
@@ -51,7 +51,7 @@ class Gateway extends AbstractGateway
      */
     public function post(array $parameters = array())
     {
-        return $this->createRequest('\Omnipay\Omnitest\Message\PostRequest', $parameters);
+        return $this->createRequest('\Adee2210\Omnitest\Message\PostRequest', $parameters);
     }
 
     /**

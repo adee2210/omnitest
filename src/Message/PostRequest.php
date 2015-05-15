@@ -1,6 +1,8 @@
 <?php
 
-namespace Omnipay\Omnitest\Message;
+namespace Adee2210\Omnitest\Message;
+
+use Omnipay\Common\AbstractGateway;
 
 /**
  * Omnitest Post Request
@@ -28,10 +30,7 @@ class PostRequest extends AbstractRequest
     protected function getXmlString()
     {
         $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-                <PostRequest
-                    xmlns=\"http://www.optimalpayments.com/creditcard/xmlschema/v1\"
-                    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-                    xsi:schemaLocation=\"http://www.optimalpayments.com/creditcard/xmlschema/v1\" />";
+                <PostRequest xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>";
 
         $sxml = new \SimpleXMLElement($xml);
 
