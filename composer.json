@@ -10,9 +10,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "omnipay/common": "^2.0@dev",
-        "phpunit/phpunit": "^4.8@dev",
-        "omnipay/paypal": "^2.3@dev",
-        "omnipay/netbanx": "^2.0@dev"
+        "omnipay/common": "^2.0@dev"
     }
 }
