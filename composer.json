@@ -13,5 +13,7 @@
         "psr-4": { "Adee2210\\Omnitest\\" : "src/" }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+            "adee2210/common": "dev-master"
+    }
 }
