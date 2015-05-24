@@ -1,329 +1,118 @@
 <?php
-
 namespace Adee2210\Omnitest;
 
-use Omnipay\Common\AbstractGateway;
+use Adee2210\Common\GatewayCore;
+use Adee2210\Common\GatewayTemplate;
 
-/**
- * Omnitest Class
- */
-class Gateway extends AbstractGateway
+class Gateway extends GatewayCore implements GatewayTemplate
 {
 
-    /**
-     * Get name of the gateway
-     *
-     * @return string
-     */
-    public function getName()
+    public function __construct()
     {
-        return 'Omni Test';
+        return $this->setConfig() && $this->setVars() && $this->setName();
     }
 
-    /**
-     * Get default parameters
-     *
-     * @return array
-     */
-    public function getDefaultParameters()
+	private function setName(){
+		return $this->name = 'Omnitest Gateway';
+	}
+
+    private function setConfig($args = array())
     {
-        return array(
-            'sid' => '',
-            'rcode' => '',
-            'country' => '',
-            'cart' => array(),
-            'summary' => array(),
-            'currency_code' => '',
-            'items' => array(),
-            'name' => '',
-            'quantity' => 0,
-            'amount_unit' => '',
-            'item_no' => '',
-            'item_desc' => '',
-        );
+		return $this->configs = array(
+			'ccPurchase' => array(
+				'args' => array(
+					'sid',
+					'rcode',
+					'country',
+					'addfee',
+					'cart',
+					'summary',
+					'currency_code',
+					'items' => array(
+						'name',
+						'quantity',
+						'amount_unit',
+						'item_no',
+						'item_desc',
+					)
+				),
+                'description' => 'Allows you to test Payment gateway.',
+                'url' => 'http://www.adeeisme.com/omnitest/api/',//'http://localhost/ws/api/',
+                'txnMode' => 'ccPurchase',
+                'optional' => array(
+					'addfee',
+                ),
+				'format' => array(
+					'send' => 	'json',
+					'receive' => 'json',
+				),
+                'response' => 'ccTxnResponseV1'
+			)
+		);
     }
 
-    /**
-     * Create a new post.
-     *
-     * @param array An array of options
-     * @return \Omnipay\ResponseInterface
-     */
-    public function post(array $parameters = array())
+    private function setVars($args = array())
     {
-        return $this->createRequest('\Adee2210\Omnitest\Message\PostRequest', $parameters);
-    }
-
-    /**
-     * Setter for Site id
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setSid($value)
-    {
-        return $this->setParameter('sid', $value);
-    }
-
-    /**
-     * Getter for Site id
-     *
-     * @return string
-     */
-    public function getSid()
-    {
-        return $this->getParameter('sid');
-    }
-
-    /**
-     * Setter for Site RCODE
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setRcode($value)
-    {
-        return $this->setParameter('rcode', $value);
-    }
-
-    /**
-     * Getter for RCODE
-     *
-     * @return string
-     */
-    public function getRcode()
-    {
-        return $this->getParameter('rcode');
-    }
-
-    /**
-     * Setter for Country of the user
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setCountry($value)
-    {
-        return $this->setParameter('country', $value);
-    }
-
-    /**
-     * Getter for Country of the user
-     *
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->getParameter('country');
-    }
-
-    /**
-     * Setter for Add FEE condition
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setAddfee($value)
-    {
-        return $this->setParameter('addfee', $value);
-    }
-
-    /**
-     * Getter for Add FEE condition
-     *
-     * @return string
-     */
-    public function getAddfee()
-    {
-        return $this->getParameter('addfee');
-    }
-
-    /**
-     * Setter for Cart
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setCart($value)
-    {
-        return $this->setParameter('cart', $value);
-    }
-
-    /**
-     * Getter for Cart
-     *
-     * @return string
-     */
-    public function getCart()
-    {
-        return $this->getParameter('cart');
-    }
-
-    /**
-     * Setter for Summary
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setSummary($value)
-    {
-        return $this->setParameter('summary', $value);
-    }
-
-    /**
-     * Getter for Summary
-     *
-     * @return string
-     */
-    public function getSummary()
-    {
-        return $this->getParameter('summary');
-    }
-
-    /**
-     * Setter for Currency Code
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setCurrencyCode($value)
-    {
-        return $this->setParameter('currency_code', $value);
-    }
-
-    /**
-     * Getter for Currency Code
-     *
-     * @return string
-     */
-    public function getCurrencyCode()
-    {
-        return $this->getParameter('currency_code');
-    }
-
-    /**
-     * Setter for Items
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setItems($value)
-    {
-        return $this->setParameter('items', $value);
-    }
-
-    /**
-     * Getter for Items
-     *
-     * @return string
-     */
-    public function getItems()
-    {
-        return $this->getParameter('items');
-    }
-
-    /**
-     * Setter for Name
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setName($value)
-    {
-        return $this->setParameter('name', $value);
-    }
-
-    /**
-     * Getter for Name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->getParameter('name');
-    }
-
-    /**
-     * Setter for Quantity
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setQuantity($value)
-    {
-        return $this->setParameter('quantity', $value);
-    }
-
-    /**
-     * Getter for Quantity
-     *
-     * @return string
-     */
-    public function getQuantity()
-    {
-        return $this->getParameter('quantity');
-    }
-
-    /**
-     * Setter for Amount Unit
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setAmountUnit($value)
-    {
-        return $this->setParameter('amount_unit', $value);
-    }
-
-    /**
-     * Getter for Amount Unit
-     *
-     * @return string
-     */
-    public function getAmountUnit()
-    {
-        return $this->getParameter('amount_unit');
-    }
-
-    /**
-     * Setter for Item No
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setItemNo($value)
-    {
-        return $this->setParameter('item_no', $value);
-    }
-
-    /**
-     * Getter for Item No
-     *
-     * @return string
-     */
-    public function getItemNo()
-    {
-        return $this->getParameter('item_no');
-    }
-
-    /**
-     * Setter for Item Description
-     *
-     * @param string $value
-     * @return $this
-     */
-    public function setItemDesc($value)
-    {
-        return $this->setParameter('item_desc', $value);
-    }
-
-    /**
-     * Getter for Item Description
-     *
-     * @return string
-     */
-    public function getItemDesc()
-    {
-        return $this->getParameter('item_desc');
+		return $this->vars = array(
+            'form'=>array(
+				'sid' => array(
+					'type' => 'text',
+					'description' => 'Site id (unique identifier for the web site)',
+				),
+				'rcode' => array(
+					'type' => 'text',
+					'description' => 'Site RCODE',
+				),
+				'country' => array(
+					'type' => 'text',
+					'description' => 'Country of the user - will provide the list of payments
+	available for that country',
+				),
+				'addfee' => array(
+					'type' => 'select',
+					'default' => array( true => 'True', false => 'False'),
+					'description' => 'This will add the processing fees on top of the amount.',
+				),
+				'cart' => array(
+					'type' => 'text',
+					'description' => 'Information about the purchase items. This is only
+	compulsory for feeapi, do not sent the cart to rawfeeapi.',
+				),
+				'summary' => array(
+					'type' => 'text',
+					'description' => 'Contains a summary of cart contents',
+				),
+				'currency_code' => array(
+					'type' => 'text',
+					'description' => '3 digit currency code',
+				),
+				'items' => array(
+					'type' => 'array',
+					'description' => 'Contains the cart items',
+				),
+				'name' => array(
+					'type' => 'text',
+					'description' => 'Category, can be used freely',
+				),
+				'quantity' => array(
+					'type' => 'text',
+					'description' => 'Quantity of the item',
+				),
+				'amount_unit' => array(
+					'type' => 'text',
+					'description' => 'Unit price amount (without commas and only 2 decimals
+	places)',
+				),
+				'item_no' => array(
+					'type' => 'text',
+					'description' => 'Article number',
+				),
+				'item_desc' => array(
+					'type' => 'text',
+					'description' => 'Item description',
+				),
+			)
+		);
     }
 }
+?>
