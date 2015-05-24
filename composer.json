@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Adee2210\\Omnitest\\" : "src/" }
+        "psr-4": { "Adee2210\\Omnitest\\" : "src/" }
     },
     "minimum-stability": "dev",
     "require": {
