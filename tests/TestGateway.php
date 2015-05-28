@@ -3,7 +3,7 @@ namespace Adee2210\Omnitest\TestGateway;
 
 use Adee2210\Omnitest\Gateway;
 
-class TestGateway extends PHPUnit_Framework_TestCase
+class TestGateway extends \PHPUnit_Framework_TestCase
 {
     public function TestccPurchaseSuccess()
     {
