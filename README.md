@@ -15,8 +15,8 @@ rcode | --- | Yes | String | Site RCODE
 country | --- | Yes | String | Country of the user - will provide the list of payments available for that country
 addfee | --- | No | Boolean | This will add the processing fees on top of the amount.
 cart | --- | Yes | Array | Information about the purchase items. This is only compulsory for feeapi, do not sent the cart to rawfeeapi.
-summary | amount | Yes | Float | Contains a summary of amount contents
-summary | quantity | Yes | Integer | Contains a summary of cart contents
+summary | amount | Yes | Float | Contains a summary of price amount (without commas and only 2 decimals places)
+summary | quantity | Yes | Integer | Contains a summary of cart quantity
 currency_code | --- | Yes | String | 3 digit currency code
 items | --- | Yes | Array | Contains the cart items
 --- | (numerical index) | Yes | Array | Contains information about one item in the cart (Repeat until all cart items are listed)
