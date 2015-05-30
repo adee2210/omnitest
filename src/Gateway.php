@@ -37,7 +37,7 @@ class Gateway extends GatewayCore implements GatewayTemplate
                     )
                 ),
                 'description' => 'Allows you to test Payment gateway.',
-                'url' => 'http://www.adeeisme.com/omnitest/api/',//'http://localhost/ws/api/',
+                'url' => 'http://www.adeeisme.com/omnitest/api/',
                 'txnMode' => 'ccPurchase',
                 'optional' => array(
                     'addfee',
