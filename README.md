@@ -1,11 +1,11 @@
 # omnitest
 
-**Installation
+** Installation
 ```
 composer require adee2210/omnitest:dev-master
 ```
 
-**How to use
+** How to use
 
 Step 1 : Initialize
 ```php
