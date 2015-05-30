@@ -52,6 +52,7 @@ $response = $gateway->postForm('ccPurchase', $app['request']->request->all());
 ```
 
 **Response**
+
 *Success*
 ```json
 [ { "mxsid": "10146", "payby": "bpay", "title": "BPay", "display_title": null, "description": null, "transfertime": null, "transferlimit": null, "currency_code": "AUD", "currency_symbol": "$", "image": "--Logo URL--", "fee": { "srccode": "AUD", "destcode": "USD", "rate": 0.96801106010318, "effectivedate": "2011-04-04",  "flatfee": 3, "mdr": 1 }, "fields": { "card_no": { "description": "", "type": "hidden", "value": "70720297711", "title": "" }, "description": { "description": "", "type": "span", "value": "--HTML String--" }, } }]
