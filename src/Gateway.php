@@ -26,7 +26,8 @@ class Gateway extends GatewayCore implements GatewayTemplate
                     'country',
                     'addfee',
                     'cart',
-                    'summary',
+                    'summary.amount',
+                    'summary.quantity',
                     'currency_code',
                     'items' => array(
                         'name',
