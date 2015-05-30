@@ -79,9 +79,13 @@ class Gateway extends GatewayCore implements GatewayTemplate
                     'description' => 'Information about the purchase items. This is only
     compulsory for feeapi, do not sent the cart to rawfeeapi.',
                 ),
-                'summary' => array(
+                'summary.amount' => array(
                     'type' => 'text',
-                    'description' => 'Contains a summary of cart contents',
+                    'description' => 'Contains a summary of amount',
+                ),
+                'summary.quantity' => array(
+                    'type' => 'text',
+                    'description' => 'Contains a summary of quantity',
                 ),
                 'currency_code' => array(
                     'type' => 'text',
